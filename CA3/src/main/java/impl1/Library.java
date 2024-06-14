@@ -183,6 +183,10 @@ class Professor extends Member {
 class Loan {
 
     Loan(Member mem, Document doc, int date) throws InvalidArgumentEx {
+        //modification
+        if (date < 0)
+            throw new InvalidArgumentEx("Invalid argument to loan constructor");
+
         if (mem == null || doc == null)
             throw new InvalidArgumentEx("Invalid argument to loan constructor");
         member = mem;
@@ -285,7 +289,6 @@ public class Library implements sts01.ILibrary {
                 result.add(elem.getKey().getTitle());
         }
         return result;
-
     }
 
     @Override
