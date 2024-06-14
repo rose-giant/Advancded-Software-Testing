@@ -46,14 +46,22 @@ class Book extends Document {
     }
 
     public int calculatePenalty(int dayPenalty) {
+        //incorrect
         dayPenalty = dayPenalty * -1;
         if (dayPenalty <= 7)
             return 2000;
         if (dayPenalty <= 21)
             return 3000;
         return 2000;
-    }
 
+        //corrected
+//        if (dayPenalty <= 7)
+//            return dayPenalty * 2000;
+//        else if (dayPenalty <= 21 && dayPenalty > 7)
+//            return (14000 + (dayPenalty - 7) * 3000);
+//        else
+//            return (14000 + 42000 + (dayPenalty - 21) * 5000 );
+    }
 }
 
 class Reference extends Document {
@@ -63,12 +71,17 @@ class Reference extends Document {
     }
 
     public int calculatePenalty(int dayPenalty) {
+        //incorrect
         dayPenalty = dayPenalty * -1;
         if (dayPenalty <= 3)
             return 5000;
         return 7000;
-    }
 
+        //corrected
+//        if (dayPenalty <= 3)
+//            return dayPenalty * 5000;
+//        return (15000 + (dayPenalty - 3) * 7000);
+    }
 }
 
 class Magazine extends Document {
@@ -80,9 +93,15 @@ class Magazine extends Document {
     }
 
     public int calculatePenalty(int dayPenalty) {
+        //incorrect
         if (year < 1390)
             return 2000;
         return 3000;
+
+        //corrected
+//        if (year < 1390)
+//            return dayPenalty * 2000;
+//        return dayPenalty * 3000;
     }
 
     protected int year;
@@ -308,7 +327,7 @@ public class Library implements ILibrary {
             }
     }
 
-    private final List<Person> persons = new ArrayList<>();
+    protected final List<Person> persons = new ArrayList<>();
     private final List<Document> docs = new ArrayList<>();
 }
 

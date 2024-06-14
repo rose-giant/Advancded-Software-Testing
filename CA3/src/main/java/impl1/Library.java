@@ -86,10 +86,17 @@ class Reference extends Document {
     }
 
     int penaltyFor(int days) {
+        //incorrect
         if (days <= 3)
             return 3 * 5000 + days * 7000;
         else
             return (21 - 7) * 3000 + (days - 21) * 5000;
+
+        //should be
+        //if (days <= 3)
+        //return days * 5000;
+        //else
+        //return 3 * 5000 + (days - 3) * 7000;
     }
 }
 
